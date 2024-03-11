@@ -87,12 +87,18 @@
 
     <script>
         try {
-            new Sa11y({
+            new Sa11ySlider({
                 containerClass: ".sa11y-slider",
-                slideClass: ".sa11y-slide",
                 prevBtnClass: ".sa11y-prev",
                 nextBtnClass: ".sa11y-next",
-                showCount: 2,
+                viewClass: ".sa11y-view",
+                slideClass: ".sa11y-slide",
+                gapSize: 20,
+                slideBreakpoints: {
+                    0: 1,
+                    768: 2,
+                    1440: 3,
+                }
             });
         } catch (error) {
             console.error(error);
