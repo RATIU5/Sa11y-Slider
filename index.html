@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" view="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="sa11y.js" defer></script>
+    <style>
+        
+        :root {
+            --gapSize: 20px;
+        }
+
+        .sa11y-slider {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 300px;
+            width: 100%;
+        }
+
+        .sa11y-container {
+            width: 100%;
+            position: relative;
+        }
+
+        .sa11y-view {
+            flex: 1;
+            display: flex;
+            gap: var(--gapSize);
+            justify-content: center;
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sa11y-slide {
+            min-width: calc(50% - calc(var(--gapSize) * 2));
+            position: abdolute;
+            transform: translateX(calc(50% + var(--gapSize) * 2 + var(--gapSize)));
+        }
+
+        
+        .sally-slide-view {
+            padding: 10px;
+        }
+       
+        .sa11y-active {
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sa11y-slider" role="region" aria-label="My Slider">
+        <button class="sa11y-prev" aria-label="Previous">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="26" viewBox="0 0 15 26" fill="none">
+                <path d="M13.66 0.93998L1 13.1456L13.66 25.355" stroke="#1E1E1E" stroke-width="1.25" />
+            </svg>
+        </button>
+        <div class="sa11y-container">
+            <div class="sa11y-view" aria-live="polite" id="sliderview">
+                <div class="sa11y-slide">
+                    <a href="#">Slide 1</a>
+                </div>
+                <div class="sa11y-slide">
+                    <a href="#">Slide 2</a>
+                </div>
+                <div class="sa11y-slide">
+                    <a href="#">Slide 3</a>
+                </div>
+                <div class="sa11y-slide">
+                    <a href="#">Slide 4</a>
+                </div>
+                <div class="sa11y-slide">
+                    <a href="#">Slide 5</a>
+                </div>
+            </div>
+        </div>
+        <button class="sa11y-next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="26" viewBox="0 0 15 26" fill="none">
+                <path d="M1.34 0.93998L14 13.1456L1.34 25.355" stroke="#1E1E1E" stroke-width="1.25" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        try {
+            new Sa11y({
+                containerClass: ".sa11y-slider",
+                slideClass: ".sa11y-slide",
+                prevBtnClass: ".sa11y-prev",
+                nextBtnClass: ".sa11y-next",
+                showCount: 2,
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    </script>
+</body>
+
+</html>
