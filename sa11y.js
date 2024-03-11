@@ -35,6 +35,8 @@ class Sa11ySlider {
       throw new Error('Sa11ySlider: no slides found in view element');
     }
 
+    const breakpoints = 
+
     this._init();
   }
 

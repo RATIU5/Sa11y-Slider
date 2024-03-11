@@ -27,18 +27,13 @@
 
         .sa11y-view {
             flex: 1;
-            display: flex;
-            gap: var(--gapSize);
-            justify-content: center;
             height: 220px;
             position: relative;
             overflow: hidden;
         }
 
         .sa11y-slide {
-            min-width: calc(50% - calc(var(--gapSize) * 2));
-            position: abdolute;
-            transform: translateX(calc(50% + var(--gapSize) * 2 + var(--gapSize)));
+            position: absolute;
         }
 
         
@@ -95,9 +90,15 @@
                 slideClass: ".sa11y-slide",
                 gapSize: 20,
                 slideBreakpoints: {
-                    0: 1,
-                    768: 2,
-                    1440: 3,
+                    0: {
+                        slidesToShow: 1,
+                    },
+                    768: {
+                        slidesToShow: 2,
+                    },
+                    1440: {
+                        slidesToShow: 3,
+                    },
                 }
             });
         } catch (error) {
